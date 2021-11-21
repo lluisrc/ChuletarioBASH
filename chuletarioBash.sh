@@ -6,8 +6,6 @@
 #| |___| | | | |_| | |  __/ || (_| | |  | | (_) |
 # \____|_| |_|\__,_|_|\___|\__\__,_|_|  |_|\___/ 
 
-# Estructuras de control
-
 # Operadores
 = --> asignación
 == --> igual
@@ -39,6 +37,8 @@
 *= --> mutiplica y asigna
 /= divide y asigna
 %= resto y asigna
+
+# Estructuras de control
 
 # if [[ "$a" < "$b" ]]
 # if [ "$a" \< "$b" ]
