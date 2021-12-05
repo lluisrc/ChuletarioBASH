@@ -181,7 +181,18 @@ echo "GNU     \    Linux" | tr -s ' '
 5d (podemos eliminar una fila de un fichero --> sed '5d' fichero.txt)
 5,10d (podemos eliminar un rango de filas de un fichero --> sed '5,10d' fichero.txt)
 
+Si no le se añade parametro muestra la modificación en el output pero no se aplica en el archivo
 sed 's/Microsoft Windows/GNU Linux/2' fichero.txt
+
+-i se aplica los cambios en el archivo
+sed -i 's/^que .*$/el contenido de la línea ha sido reemplazado/' sedexamples
+
+Nota: La magia del último comando la realiza la expresión regular ^que .*$. La parte ^que hace referencia a todas las líneas que empiezan por la cadena de caracteres que. El punto . hace referencia a cualquier letra que aparezca las veces que aparezca * hasta el final de la línea$.
+
+sin el -i te muestra por pantalla las modificaciones pero no aplica al archivo,
+con el -i aplica las modificaicones en el archivo.
+los comodines \ sirven para poner "/" como caracter --> \/
 
 
 # Falta trabajar con awk
+# Como crear un servicio en linux.(link tuto tomcat service )
