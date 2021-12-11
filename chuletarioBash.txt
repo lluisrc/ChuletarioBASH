@@ -94,6 +94,8 @@ tput cnorm
 \t
 
 # -e se come las expresiones \ 
+# -n imprime en la misma línea que la anterior(explicar esto mejor)
+# en los echo puedes jugar con \n \t \r?
 echo -e "\n${redColour}Hola"
 
 # Trap ejecuta una funcion dependiendo de la señal con la que ha finalizado el proceso, en este caso interrupción (ctrl+c)
