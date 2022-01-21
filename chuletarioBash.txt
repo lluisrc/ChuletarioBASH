@@ -77,6 +77,15 @@ esac
 id -u
 
 
+# Grep imprime las lineas que contenga el argumento
+grep error
+-r --> busca recursivamente
+-v --> omite las lineas que contenga el argumento
+-i --> no diferencia el caseSensitive
+También, gracias al "|", puede ser complementado por otro comando
+cat output.log | grep error
+
+
 # Devuelve 0 si el comando anterior se ejecutó correctamente
 $?
 
@@ -192,6 +201,18 @@ Nota: La magia del último comando la realiza la expresión regular ^que .*$. La
 sin el -i te muestra por pantalla las modificaciones pero no aplica al archivo,
 con el -i aplica las modificaicones en el archivo.
 los comodines \ sirven para poner "/" como caracter --> \/
+
+
+# tcpdump, este comando captura los paquetes que viajan por la red. Mas tarde, estos paquetes se pueden analizar con wireshark
+tcpdump <argumentos>
+# mas info en --> https://danielmiessler.com/study/tcpdump/
+-w <output.pcap> --> donde output podemos poner el nombre/ubicación donde se guarda el archevo
+host <host> --> analiza los paquetes (entrantes  y salientes) del host
+port <nº puerto> --> filtra los paquetes y caputura solo los del puerto definido
+-v / -vv --> muestra más detalle en la salida del comando
+src --> solo captura los paquetes de origen en la comunicación
+dest --> solo captura los paquetes de destinatario en la comunicación
+-i --> para que escuche por una interfaz de red especifica
 
 
 # Falta trabajar con awk
