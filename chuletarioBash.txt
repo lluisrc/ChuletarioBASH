@@ -218,5 +218,8 @@ dest --> solo captura los paquetes de destinatario en la comunicación
 -i --> para que escuche por una interfaz de red especifica
 
 
+rlwrap --> hace un historico de comandos para utilizar las fechas de arriba y abajo y cambiar de comando mas rapido
+
+
 # Falta trabajar con awk
 # Como crear un servicio en linux.(link tuto tomcat service )
