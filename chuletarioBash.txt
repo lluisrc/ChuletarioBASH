@@ -85,6 +85,28 @@ grep error
 También, gracias al "|", puede ser complementado por otro comando
 cat output.log | grep error
 
+-e pattern
+-i: Ignore uppercase vs. lowercase.
+-v: Invert match.
+-c: Output count of matching lines only.
+-l: Output matching files only.
+-n: Precede each matching line with a line number.
+-b: A historical curiosity: precede each matching line with a block number.
+-h: Output matching lines without preceding them by file names.
+-s: Suppress error messages about nonexistent or unreadable files.
+-x
+-f file: Take regexes from a file.
+-o: Output the matched parts of a matching line.
+--help
+-V, --version
+--regexp=pattern, in addition to -e pattern
+--invert-match, in addition to -v
+--word-regexp, in addition to -w
+--line-regexp, in addition to -x
+-A num, --after-context=num
+-B num, --before-context=num
+-C num, -num, --context=num
+
 
 # Devuelve 0 si el comando anterior se ejecutó correctamente
 $?
