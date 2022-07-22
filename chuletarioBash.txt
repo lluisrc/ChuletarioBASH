@@ -76,6 +76,21 @@ esac
 # Imprime por pantalla el id de usuario, si es root será 0
 id -u
 
+# Crear usuario
+useradd lroca
+
+# Crear grupo
+groupadd docker
+
+# Añadir usuario a grupo
+usermod -aG docker lroca
+
+-a, append (sin la -a, remplaza)
+-G, define el grupo como secundario
+-g, define el grupo como primario
+
+
+
 
 # Grep imprime las lineas que contenga el argumento
 grep error
