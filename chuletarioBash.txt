@@ -258,7 +258,29 @@ dest --> solo captura los paquetes de destinatario en la comunicación
 rlwrap --> hace un historico de comandos para utilizar las fechas de arriba y abajo y cambiar de comando mas rapido
 
 
-# Falta trabajar con awk
+# awk
+Imprime la primera columna (por defecto el delimitador es el espacio)
+ps | awk '{print $1}'
+
+Imprime la primera columna pero NO la primera fila
+ps | awk 'NR>1{print $2}'
+
+Cambiar el delimitador
+-F ":"
+cat /etc/passwd | awk -F ":" '{print $1}'
+
+Mostrar coincidencias (como un grep)
+awk '/^tmpfs/ {print}'
+
+Contar el numero de líneas (como un wc -l)
+awk '{print NR}' /etc/shells
+
+Imprimir la primera/rango linea
+awk 'NR==1{print $0}'
+awk 'NR>2{print $0}'
+awk 'NR==2, NR==4 {print $0}'
+
+
 # Como crear un servicio en linux.(link tuto tomcat service )
 
 
