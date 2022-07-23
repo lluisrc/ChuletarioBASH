@@ -308,3 +308,7 @@ Customizar el prompt:
 \\ : Barra diagonal.
 \[ : Inicio de una secuencia de caracteres no imprimibles.
 \] : Fin de una secuencia de caracteres no imprimibles.
+
+
+Expresiones regulares (regexp)
+https://www.tutorialspoint.com/unix/unix-regular-expressions.htm
