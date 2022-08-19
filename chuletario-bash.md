@@ -374,55 +374,66 @@ Hace un historico de comandos para utilizar las fechas de arriba y abajo y cambi
 
 # awk
 Imprime la primera columna (por defecto el delimitador es el espacio)
-ps | awk '{print $1}'
-
+```
+[user@serverlinux ~]$ ps | awk '{print $1}'
+```
+    
 Imprime la primera columna pero NO la primera fila
-ps | awk 'NR>1{print $2}'
+```
+[user@serverlinux ~]$ ps | awk 'NR>1{print $2}'
+```
 
-Cambiar el delimitador
--F ":"
-cat /etc/passwd | awk -F ":" '{print $1}'
+Cambiar el delimitador -F ":"
+```
+[user@serverlinux ~]$ cat /etc/passwd | awk -F ":" '{print $1}'
+```
 
 Mostrar coincidencias (como un grep)
-awk '/^tmpfs/ {print}'
+```
+[user@serverlinux ~]$ cat fichero.txt | awk '/^tmpfs/ {print}'
+```
 
 Contar el numero de líneas (como un wc -l)
-awk '{print NR}' /etc/shells
+```
+[user@serverlinux ~]$ cat fichero.txt | awk '{print NR}' /etc/shells
+```
 
 Imprimir la primera/rango linea
-awk 'NR==1{print $0}'
-awk 'NR>2{print $0}'
-awk 'NR==2, NR==4 {print $0}'
+```
+[user@serverlinux ~]$ cat fichero.txt | awk 'NR==1{print $0}'
+[user@serverlinux ~]$ cat fichero.txt | awk 'NR>2{print $0}'
+[user@serverlinux ~]$ cat fichero.txt | awk 'NR==2, NR==4 {print $0}'
+```
+
+## Crear un servicio en linux.(link tuto tomcat service )
 
 
-# Como crear un servicio en linux.(link tuto tomcat service )
+## Personalizar prompt
+Se configura en `~/.bashrc` con la variable `PS1=""`
+
+| Argument | Description |
+|:--------:| ----------- |
+| \u | Nombre del usuario actual. |
+| \h | Nombre del host hasta el primer punto (.), por ejemplo, orion del host orion.zeppelinux.es. |
+| \H | Nombre del host completo. |
+| \w | Path del directorio de trabajo actual. |
+| \W | Nombre del directorio de trabajo actual. |
+| \d | Fecha actual en formato (dia_semana mes día, lun jul 27. |
+| \t | Hora actual en formato 24 horas (HH:MM:SS). |
+| \T | Hora actual en formato 12 horas (HH:MM:SS). |
+| \@ | Hora actual en formato 12 horas (am/pm). |
+| \n | Nueva línea. |
+| \r | Retorno de carro (enter/intro). |
+| \s | Nombre de la shell. |
+| \v | Versión de bash. |
+| \V | Numero de la release de bash. |
+| \! | Número en el historial del comando ejecutado. |
+| \# | Número de comando de este comando. |
+| \$ | Si se trada de un usuario normal, aparece un $. Si se trata del usuario root, aparece un #. |
+| \\ | Barra diagonal. |
+| \[ | Inicio de una secuencia de caracteres no imprimibles. |
+| \] | Fin de una secuencia de caracteres no imprimibles. |
 
 
-# Personalizar prompt
-Se configura en ~/.bashrc con la variable PS1=""
-
-Customizar el prompt:
-\u : Nombre del usuario actual.
-\h : Nombre del host hasta el primer punto (.), por ejemplo, orion del host orion.zeppelinux.es.
-\H : Nombre del host completo.
-\w : Path del directorio de trabajo actual.
-\W : Nombre del directorio de trabajo actual.
-\d : Fecha actual en formato (dia_semana mes día, lun jul 27.
-\t : Hora actual en formato 24 horas (HH:MM:SS).
-\T : Hora actual en formato 12 horas (HH:MM:SS).
-\@ : Hora actual en formato 12 horas (am/pm).
-\n : Nueva línea.
-\r : Retorno de carro (enter/intro).
-\s : Nombre de la shell.
-\v : Versión de bash.
-\V : Numero de la release de bash.
-\! : Número en el historial del comando ejecutado.
-\# : Número de comando de este comando.
-\$ : Si se trada de un usuario normal, aparece un $. Si se trata del usuario root, aparece un #.
-\\ : Barra diagonal.
-\[ : Inicio de una secuencia de caracteres no imprimibles.
-\] : Fin de una secuencia de caracteres no imprimibles.
-
-
-Expresiones regulares (regexp)
+## Expresiones regulares (regexp)
 https://www.tutorialspoint.com/unix/unix-regular-expressions.htm
