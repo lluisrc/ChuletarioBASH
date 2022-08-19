@@ -34,9 +34,10 @@ case i in
 esac
 ```
 
-## Operadores para hacer comparaciones
-= --> asignación
-== --> igual
+## Operadores para las comparaciones
+| Elemento | Descripción |
+|----------|-------------|
+| == | igual, solo con strings |
 -eq --> igual
 != --> distinto
 -ne --> distinto
