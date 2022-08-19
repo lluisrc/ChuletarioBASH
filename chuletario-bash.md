@@ -160,11 +160,12 @@ Devuelve la salida a /dev/null (a nada) y la salida de errores la redirige a std
 ```
 
 ## Mostrar/Ocultar el cursor
-```
 Muestra el cursor
+```
 tput cnorm
-
+```
 Ocultar el cursor
+```
 tput civis
 ```
 
