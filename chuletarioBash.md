@@ -51,21 +51,23 @@ esac
 | >= | mayor o igual que |
 | -z | string null |
 | -n | string not null |
-| -a | and |
-| && | and |
+| -a, && | and |
 | -o, \|\| | or |
-| || | or |
+
+## Operadores para los int
+| Elemento | Descripción |
+|----------|-------------|
 | + | suma |
 | - | resta |
-| \* | mutiplicación |
+| \\* | mutiplicación |
 | / | división |
 | % | resto |
 | ** | potencia |
 | += | suma y asigna |
 | -= | resta y asigna |
 | *= | mutiplica y asigna |
-| /= | divide y asigna |
-| %= | resto y asigna |
+| \/= | divide y asigna |
+| \%= | resto y asigna |
 
 # Estructuras de control
 
