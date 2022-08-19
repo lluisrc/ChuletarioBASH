@@ -77,6 +77,7 @@ esac
 ## Imprime por pantalla el id de usuario, si es root será 0
 ```
 [root@serverlinux ~]# id -u
+0
 ```
 
 ## Mantenimiento de usuarios
@@ -138,12 +139,16 @@ Devuelve 0 si el comando anterior se ejecutó correctamente.
 [user@serverlinux ~]$ mkdir test01
 [user@serverlinux ~]$ echo "$?"
 0
-
+```
+Devuelve 1 si el comando anterior no se ejecutó correctamente.
+```
 [user@serverlinux ~]$ ls /path/do/not/exist
 [user@serverlinux ~]$ echo "$?"
 1
-
-[user@serverlinux ~]$ dfajsdlf (comando no existe)
+```
+Devuelve 127 si el comando anterior no existe.
+```
+[user@serverlinux ~]$ dfajsdlf
 [user@serverlinux ~]$ echo "$?"
 127
 ```
@@ -174,7 +179,7 @@ La salida la podemos imprimir con el comando echo
 | -e | Interpreta el carácter \\ como acción |
 | -n | No hace un "intro" de después de imprimir |
 
-### Formatos \¿?
+### Formatos \
 | Argument | Description |
 |:--------:| ----------- |
 | \b | Quita los espacios en blanco |
@@ -269,8 +274,8 @@ Mundo
 Remplaza los characters de la salida del comando anterior con el formato deseado.<br>
 La primera opción indica que quieres reemplazar y la segunda a qué.
 ```
-echo "Hola mundo!" | tr "[OPCIONES]" "[OPCIONES]"
-echo "Hola mundo!" | tr "[:lower:]" "[:upper:]"
+[user@serverlinux ~]$ echo "Hola mundo!" | tr "[OPCIONES]" "[OPCIONES]"
+[user@serverlinux ~]$ echo "Hola mundo!" | tr "[:lower:]" "[:upper:]"
 ```
 | Argument | Description |
 |:--------:| ----------- |
@@ -288,37 +293,60 @@ echo "Hola mundo!" | tr "[:lower:]" "[:upper:]"
 | \[:alnum:] | Todas las letras y numeros |
 
 
-# Todas las minusculas a mayusculas
-echo "Hola mundo!" | tr "[:lower:]" "[:upper:]"
-# Todo lo que no contecga A me lo pones a t
-echo "Abc123d56E" | tr -c 'A' 't'
-# Las secuencias de ' ' me las sustituyes por un ' ' 
-echo "GNU     \    Linux" | tr -s ' '
-
+Todas las minusculas a mayusculas
+```
+[user@serverlinux ~]$ echo "Hola mundo!" | tr "[:lower:]" "[:upper:]"
+```
+Todo lo que no contecga A me lo pones a t
+```
+[user@serverlinux ~]$ echo "Abc123d56E" | tr -c 'A' 't'
+```
+Las secuencias de ' ' me las sustituyes por un ' ' 
+```
+[user@serverlinux ~]$ echo "GNU     \    Linux" | tr -s ' '
+```
 
 ## sed
-reemplazar el texto en un archivo sin acceder a este.
--s (sustitución, solo la primera aparición NO todas)
-/ (delimitadores)
-    primera posición del delimitador es el patrón de búsqueda
-    segunda posición del delimitador es la cadena de remplazo
-    tercera posición del delimitador es el numero de apariciones que actuará, en este caso 2. Utilizamos 'g' para todas las apariciones.
-5 (podemos indicar que línea especifica debe acutar --> sed '5 s/Microsoft Windows/GNU Linux/2' fichero.txt)
-5,10 (podemos indicar un rango de lineas donde debe acutar --> sed '5,10 s/Microsoft Windows/GNU Linux/2' fichero.txt)
-5d (podemos eliminar una fila de un fichero --> sed '5d' fichero.txt)
-5,10d (podemos eliminar un rango de filas de un fichero --> sed '5,10d' fichero.txt)
+Edita el texto de un archivo.
+```
+[user@serverlinux ~]$ sed -i 's/Microsoft Windows/GNU Linux/2' fichero.txt
+```
+s sustitución
+/ delimitadores
+- primera posición del delimitador es el patrón de búsqueda
+- segunda posición del delimitador es la cadena de remplazo
+- tercera posición del delimitador es el numero de apariciones que actuará, en este caso 2. Utilizamos 'g' para todas las apariciones.
 
-Si no le se añade parametro muestra la modificación en el output pero no se aplica en el archivo
-sed 's/Microsoft Windows/GNU Linux/2' fichero.txt
 
--i se aplica los cambios en el archivo
-sed -i 's/^que .*$/el contenido de la línea ha sido reemplazado/' sedexamples
+Podemos indicar que línea especifica debe acutar
+```
+[user@serverlinux ~]$ sed '5 s/Microsoft Windows/GNU Linux/2' fichero.txt
+```
+
+Podemos indicar un rango de lineas donde debe acutar
+```
+[user@serverlinux ~]$ sed '5,10 s/Microsoft Windows/GNU Linux/2' fichero.txt
+```
+
+Podemos eliminar una fila de un fichero
+```
+[user@serverlinux ~]$ sed '5d' fichero.txt
+```
+
+Podemos eliminar un rango de filas de un fichero
+```
+[user@serverlinux ~]$ sed '5,10d' fichero.txt
+```
+
+-i se aplica los cambios en el archivo, en caso contrario solo se ve reflejado en el output
+```
+[user@serverlinux ~]$ sed -i 's/^que .*$/el contenido de la línea ha sido reemplazado/' sedexamples.txt
+```
 
 Nota: La magia del último comando la realiza la expresión regular ^que .*$. La parte ^que hace referencia a todas las líneas que empiezan por la cadena de caracteres que. El punto . hace referencia a cualquier letra que aparezca las veces que aparezca * hasta el final de la línea$.
 
-sin el -i te muestra por pantalla las modificaciones pero no aplica al archivo,
-con el -i aplica las modificaicones en el archivo.
-los comodines \ sirven para poner "/" como caracter --> \/
+> El carácter \ convierte el siguiente caracter en str. Ejemplo --> \/<br>
+> / será un string y no un limitador
 
 
 # tcpdump, este comando captura los paquetes que viajan por la red. Mas tarde, estos paquetes se pueden analizar con wireshark
