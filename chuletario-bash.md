@@ -312,7 +312,7 @@ Edita el texto de un archivo.
 ```
 [user@serverlinux ~]$ sed -i 's/Microsoft Windows/GNU Linux/2' fichero.txt
 ```
-s sustitución
+s sustitución<br>
 / delimitadores
 - primera posición del delimitador es el patrón de búsqueda
 - segunda posición del delimitador es la cadena de remplazo
@@ -344,25 +344,32 @@ Podemos eliminar un rango de filas de un fichero
 [user@serverlinux ~]$ sed -i 's/^que .*$/el contenido de la línea ha sido reemplazado/' sedexamples.txt
 ```
 
-Nota: La magia del último comando la realiza la expresión regular ^que .*$. La parte ^que hace referencia a todas las líneas que empiezan por la cadena de caracteres que. El punto . hace referencia a cualquier letra que aparezca las veces que aparezca * hasta el final de la línea$.
-
 > El carácter \ convierte el siguiente caracter en str. Ejemplo --> \/<br>
 > / será un string y no un limitador
 
 
-# tcpdump, este comando captura los paquetes que viajan por la red. Mas tarde, estos paquetes se pueden analizar con wireshark
-tcpdump <argumentos>
-# mas info en --> https://danielmiessler.com/study/tcpdump/
--w <output.pcap> --> donde output podemos poner el nombre/ubicación donde se guarda el archevo
-host <host> --> analiza los paquetes (entrantes  y salientes) del host
-port <nº puerto> --> filtra los paquetes y caputura solo los del puerto definido
--v / -vv --> muestra más detalle en la salida del comando
-src --> solo captura los paquetes de origen en la comunicación
-dest --> solo captura los paquetes de destinatario en la comunicación
--i --> para que escuche por una interfaz de red especifica
+## tcpdump
+Este comando captura los paquetes que viajan por la red. Mas tarde, estos paquetes se pueden analizar con wireshark
+```
+[user@serverlinux ~]$ tcpdump <argumentos>
+```
 
+| Opciones | Description |
+|:--------:| ----------- |
+| -w | Donde output podemos poner el nombre/ubicación donde se guarda el archevo |
+| host <host> | Analiza los paquetes (entrantes  y salientes) del host |
+| port <nº puerto> | Filtra los paquetes y caputura solo los del puerto definido |
+| -v, -vv | Muestra más detalle en la salida del comando |
+| src | Solo captura los paquetes de origen en la comunicación |
+| dest | Solo captura los paquetes de destinatario en la comunicación |
+| -i | Para que escuche por una interfaz de red especifica |
+Más info en --> https://danielmiessler.com/study/tcpdump/
 
-rlwrap --> hace un historico de comandos para utilizar las fechas de arriba y abajo y cambiar de comando mas rapido
+## rlwrap
+Hace un historico de comandos para utilizar las fechas de arriba y abajo y cambiar de comando mas rapido
+```
+[user@serverlinux ~]$ rlwrap
+```
 
 
 # awk
