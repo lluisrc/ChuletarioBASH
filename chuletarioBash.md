@@ -195,6 +195,11 @@ INT es cuando se interrumpe un proceso (equivalente al típico ctrl+C)
 ```
 trap control_c INT
 
+control_c () {
+        echo -e "\nAdioooos!!"
+        exit 1
+}
+
 La función control_c se ejecuta cuando el script como proceso se detiene con señal INTerrumpida.
 ```
 
