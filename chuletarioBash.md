@@ -1,6 +1,7 @@
 # Chuletario
 
-## If, else
+## Estructuras de control
+### If, else
 ```
 if [ ¿? ]; then
     echo "Soy true"
@@ -9,7 +10,7 @@ else
 fi
 ```
 
-## While / until
+### While / until
 ```
 while [ ¿? ]
 do
@@ -17,7 +18,7 @@ do
 done
 ```
 
-## For
+### For
 ```
 for i in ¿?
 do
@@ -25,7 +26,7 @@ do
 done
 ```
 
-## Case
+### Case
 ```
 case i in
   A) ¿? ;;
@@ -56,7 +57,8 @@ esac
 
 ## Operadores para los int
 ```
-(("$a" < "$b"))
+[root@serverlinux ~]# echo "$((5 + 3))"
+8
 ```
 | Elemento | Descripción |
 |----------|-------------|
@@ -94,39 +96,52 @@ id -u
 -g, define el grupo como primario
 ```
 
-# Grep imprime las lineas que contenga el argumento
-grep error
--r --> busca recursivamente
--v --> omite las lineas que contenga el argumento
--i --> no diferencia el caseSensitive
-También, gracias al "|", puede ser complementado por otro comando
-cat output.log | grep error
+## Grep
+Imprime las lineas que contenga el argumento
+| Argument | Description |
+| -------- | ----------- |
+| -r | Busca recursivamente. |
+| -i | Ignore case sensetive. |
+| -v | Invert match. |
+| -c | Output count of matching lines only. |
+| -l | Output matching files only. |
+| -n | Precede each matching line with a line number. |
+| -b | A historical curiosity: precede each matching line with a block number. |
+| -h | Output matching lines without preceding them by file names. |
+| -s | Suppress error messages about nonexistent or unreadable files. |
+| -f | file: Take regexes from a file. |
+| -o | Output the matched parts of a matching line. |
+| --help | Get help. |
+| -V, --version | Show version. |
+| --regexp=pattern | in addition to -e pattern. |
+| --word-regexp | in addition to -w. |
+| --line-regexp | in addition to -x. |
+| -A num | num lines to show After grep line. |
+| -B num | num lines to show Before grep line. |
+| -C num | num lines to show Context(after and before) grep line. |
+```
+[root@serverlinux ~]# grep error /var/log/app.log
+```
+Grep también puede ser complementado con la salida del comando anterior gracias al pipe "|"
+```
+[root@serverlinux ~]# cat /var/log/app.log | grep error
+```
 
--e pattern
--i: Ignore uppercase vs. lowercase.
--v: Invert match.
--c: Output count of matching lines only.
--l: Output matching files only.
--n: Precede each matching line with a line number.
--b: A historical curiosity: precede each matching line with a block number.
--h: Output matching lines without preceding them by file names.
--s: Suppress error messages about nonexistent or unreadable files.
--x
--f file: Take regexes from a file.
--o: Output the matched parts of a matching line.
---help
--V, --version
---regexp=pattern, in addition to -e pattern
---invert-match, in addition to -v
---word-regexp, in addition to -w
---line-regexp, in addition to -x
--A num, --after-context=num
--B num, --before-context=num
--C num, -num, --context=num
+## $?
+Devuelve 0 si el comando anterior se ejecutó correctamente.
+```
+[root@serverlinux ~]# mkdir test01
+[root@serverlinux ~]# echo "$?"
+0
 
+[root@serverlinux ~]# ls /path/do/not/exist
+[root@serverlinux ~]# echo "$?"
+1
 
-# Devuelve 0 si el comando anterior se ejecutó correctamente
-$?
+[root@serverlinux ~]# dfajsdlf (comando no existe)
+[root@serverlinux ~]# echo "$?"
+127
+```
 
 # Devuelve la salida a /dev/null (a nada) y la salida de errores la redirige a stdoutput
 echo "Hola" > /dev/null 2<&1
