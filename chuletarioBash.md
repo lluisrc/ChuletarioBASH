@@ -55,6 +55,9 @@ esac
 | -o, \|\| | or |
 
 ## Operadores para los int
+```
+(("$a" < "$b"))
+```
 | Elemento | Descripción |
 |----------|-------------|
 | + | suma |
@@ -69,31 +72,27 @@ esac
 | \/= | divide y asigna |
 | \%= | resto y asigna |
 
-# Estructuras de control
-
-# if [[ "$a" < "$b" ]]
-# if [ "$a" \< "$b" ]
-# if [ "$a" -lt "$b" ]
-# (("$a" < "$b"))
-
-# Imprime por pantalla el id de usuario, si es root será 0
+## Imprime por pantalla el id de usuario, si es root será 0
 id -u
+## Mantenimiento de usuarios
+### Crear usuario
+```
+[root@serverlinux ~]# useradd lroca
+```
 
-# Crear usuario
-useradd lroca
+### Crear grupo
+```
+[root@serverlinux ~]# groupadd docker
+```
 
-# Crear grupo
-groupadd docker
-
-# Añadir usuario a grupo
-usermod -aG docker lroca
+### Añadir usuario a grupo
+```
+[root@serverlinux ~]# usermod -aG docker lroca
 
 -a, append (sin la -a, remplaza)
 -G, define el grupo como secundario
 -g, define el grupo como primario
-
-
-
+```
 
 # Grep imprime las lineas que contenga el argumento
 grep error
