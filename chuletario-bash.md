@@ -9,6 +9,9 @@ else
     echo "Soy false"
 fi
 ```
+```
+[user@serverlinux ~]$ if [[ "a" == "a" ]];then echo "Soy A"; else echo "No soy A";fi
+```
 
 ### While / until
 ```
@@ -20,10 +23,13 @@ done
 
 ### For
 ```
-for i in ¿?
+for i in $(seq 1 10)
 do
     echo "$i"
 done
+```
+```
+[user@serverlinux ~]$ for i in $(seq 1 10);do echo "$i";done
 ```
 
 ### Case
