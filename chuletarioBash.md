@@ -37,7 +37,7 @@ esac
 
 ## Operadores para las comparaciones
 | Elemento | Descripción |
-|----------|-------------|
+|:--------:|-------------|
 | == | Igual (str) |
 | -eq | Igual (int) |
 | != | Distinto (str) |
