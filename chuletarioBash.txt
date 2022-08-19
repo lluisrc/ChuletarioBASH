@@ -1,10 +1,46 @@
+```
   ____ _           _      _             _       
  / ___| |__  _   _| | ___| |_ __ _ _ __(_) ___  
 | |   | '_ \| | | | |/ _ \ __/ _` | '__| |/ _ \ 
 | |___| | | | |_| | |  __/ || (_| | |  | | (_) |
  \____|_| |_|\__,_|_|\___|\__\__,_|_|  |_|\___/ 
+```
 
-# Operadores
+## If, else
+```
+if [ ¿? ]; then
+    echo "Soy true"
+else
+    echo "Soy false"
+fi
+```
+
+## While / until
+```
+while [ ¿? ]
+do
+    ¿?
+done
+```
+
+## For
+```
+for i in ¿?
+do
+    echo "$i"
+done
+```
+
+## Case
+```
+case i in
+  A) ¿? ;;
+  B) ¿? ;;
+  C) ¿? ;;
+esac
+```
+
+## Operadores para hacer comparaciones
 = --> asignación
 == --> igual
 -eq --> igual
@@ -42,34 +78,6 @@
 # if [ "$a" \< "$b" ]
 # if [ "$a" -lt "$b" ]
 # (("$a" < "$b"))
-
-
-# If, else
-if [ ¿? ]; then
-    ¿?
-else
-    ¿?
-fi
-
-# While / until
-while [ ¿? ]
-do
-    ¿?
-done
-
-# For
-for i in ¿?
-do
-    ##
-done
-
-# Case
-case i in
-  A) ¿? ;;
-  B) ¿? ;;
-  C) ¿? ;;
-esac
-
 
 # Imprime por pantalla el id de usuario, si es root será 0
 id -u
