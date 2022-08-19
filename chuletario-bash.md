@@ -93,11 +93,13 @@ esac
 ### Añadir usuario a grupo
 ```
 [root@serverlinux ~]# usermod -aG docker lroca
-
--a, append (sin la -a, remplaza)
--G, define el grupo como secundario
--g, define el grupo como primario
 ```
+| Argument | Description |
+|:--------:| ----------- |
+| -a | append (sin la -a, remplaza) |
+| -G | define el grupo como secundario |
+| -g | define el grupo como primario |
+
 
 ## Grep
 Imprime las lineas que contenga el argumento
@@ -203,7 +205,7 @@ control_c () {
 La función control_c se ejecuta cuando el script como proceso se detiene con señal INTerrumpida.
 ```
 
-# getops
+## getops
 ```
 [user@serverlinux ~]$ ./script.sh -n lroca -c Mallorca
 I am lroca
@@ -264,20 +266,27 @@ Mundo
 | -d | delimiter |
 
 ## tr
-remplazar los characters de la salida con el formato deseado. Se utiliza con paid para tratar la salida del comando anterior
-# Noramlmente en OPTION hay dos opciones, que quieres remplazar y a que quieres remplazar
+Remplaza los characters de la salida del comando anterior con el formato deseado.<br>
+La primera opción indica que quieres reemplazar y la segunda a qué.
+```
+echo "Hola mundo!" | tr "[OPCIONES]" "[OPCIONES]"
 echo "Hola mundo!" | tr "[:lower:]" "[:upper:]"
+```
+| Argument | Description |
+|:--------:| ----------- |
+| -c | Contrario, el que no sea... |
+| -d | Delete (elimina los caracteres del set1) |
+| -s | Sustituye las secuencias de repetidas occurrencias |
 
--c (la negativa, "la que no sea...")
--d delete (elimina los caracteres del set1)
--s sustituye las secuencias de repetidas occurrencias
+| Opciones | Description |
+|:--------:| ----------- |
+| \[:lower:] | Todas las mayusculas |
+| \[:upper:] | Characters |
+| \[:digit:] | Delimiter |
+| \[:space:], [:blank:] | Todos los espacios en blanco horizontales |
+| \[:alpha:] | Todas las letras |
+| \[:alnum:] | Todas las letras y numeros |
 
-[:lower:] todas las mayusculas
-[:upper:] todos las minusculas
-[:digit:] todos los digitos
-[:space:], [:blank:] todos los espacios en blanco horizontales
-[:alpha:] todas las letras
-[:alnum:] todas las letras y numeros
 
 # Todas las minusculas a mayusculas
 echo "Hola mundo!" | tr "[:lower:]" "[:upper:]"
@@ -287,7 +296,8 @@ echo "Abc123d56E" | tr -c 'A' 't'
 echo "GNU     \    Linux" | tr -s ' '
 
 
-# sed; reemplazar el texto en un archivo sin acceder a este.
+## sed
+reemplazar el texto en un archivo sin acceder a este.
 -s (sustitución, solo la primera aparición NO todas)
 / (delimitadores)
     primera posición del delimitador es el patrón de búsqueda
