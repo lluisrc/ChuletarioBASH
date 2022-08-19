@@ -53,7 +53,7 @@ esac
 | -n | string not null |
 | -a | and |
 | && | and |
-| -o, '||' | or |
+| -o, \|\| | or |
 | || | or |
 | + | suma |
 | - | resta |
