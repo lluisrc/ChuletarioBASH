@@ -143,28 +143,49 @@ Devuelve 0 si el comando anterior se ejecutó correctamente.
 127
 ```
 
-# Devuelve la salida a /dev/null (a nada) y la salida de errores la redirige a stdoutput
+## /dev/null
+Devuelve la salida a /dev/null (a nada) y la salida de errores la redirige a stdoutput
 echo "Hola" > /dev/null 2<&1
 
-# Oculta el cursor
-tput civis
-# Muestra el cursor
-tput cnorm
+# Mostrar/Ocultar el cursor
+```
+Muestra el cursor
+[root@serverlinux ~]# tput cnorm
 
-# Salto de línea
-\n
-# Salto de tabulación
-\t
+Ocultar el cursor
+[root@serverlinux ~]# tput civis
+```
 
-# -e se come las expresiones \ 
-# en los echo puedes jugar con \n \t \r (el \r se ejecuta con el -n y se pone al. Esto hace que el siguiente echo que venga empezará a sustituir los caracteres impresos echo actual.)
-# -n imprime el siguiente echo en la misma linea donde se declara el -n
+## Formatear salida con echo
+La salida la podemos imprimir con el comando echo
+```
+[root@serverlinux ~]# echo "Soy lroca"
+```
+### Parámetros
+| Argument | Description |
+| -------- | ----------- |
+| -e | Interpreta el carácter \\ como acción |
+| -n | No hace un "intro" para imprimir |
 
-echo -e "\n${redColour}Hola"
+### Formatos \¿?
+| Argument | Description |
+| -------- | ----------- |
+| \b | Quita los espacios en blanco |
+| \n | Salto de línea |
+| \t | Tabulación |
+| \v | Sangría a la derecha |
+| \r | Vuelve el curso al principio de la linea |
+| \c | El prompt continúa |
+| \a | Alerta de sonido ¿? |
+| \e\[0;31m | Color Rojo |
 
-# Trap ejecuta una funcion dependiendo de la señal con la que ha finalizado el proceso, en este caso interrupción (ctrl+c)
-# (kill -l) --> INT, EXIT, TERM
-trap control_c INT
+
+
+
+## Trap
+Trap ejecuta una funcion dependiendo de la señal con la que ha finalizado el proceso, en este caso interrupción (ctrl+c)<br>
+(kill -l) --> INT, EXIT, TERM<br>
+trap control_c INT<br>
 
 # Ojo al declare y al declare -i parameter_counter=0; while getops :x:y: arg; do
 while getopts "h:s:" arg; do
