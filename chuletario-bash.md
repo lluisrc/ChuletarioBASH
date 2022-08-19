@@ -378,7 +378,7 @@ Imprime la primera columna (por defecto el delimitador es el espacio)
 [user@serverlinux ~]$ ps | awk '{print $1}'
 ```
     
-Imprime la primera columna pero NO la primera fila
+Imprime la primera columna pero NO la primera fila, NR --> Number Row
 ```
 [user@serverlinux ~]$ ps | awk 'NR>1{print $2}'
 ```
