@@ -61,7 +61,7 @@ esac
 8
 ```
 | Elemento | Descripción |
-|----------|-------------|
+|:--------:|-------------|
 | + | suma |
 | - | resta |
 | \\* | mutiplicación |
@@ -99,7 +99,7 @@ id -u
 ## Grep
 Imprime las lineas que contenga el argumento
 | Argument | Description |
-| -------- | ----------- |
+|:--------:| ----------- |
 | -r | Busca recursivamente. |
 | -i | Ignore case sensetive. |
 | -v | Invert match. |
@@ -163,13 +163,13 @@ La salida la podemos imprimir con el comando echo
 ```
 ### Parámetros
 | Argument | Description |
-| -------- | ----------- |
+|:--------:| ----------- |
 | -e | Interpreta el carácter \\ como acción |
 | -n | No hace un "intro" para imprimir |
 
 ### Formatos \¿?
 | Argument | Description |
-| -------- | ----------- |
+|:--------:| ----------- |
 | \b | Quita los espacios en blanco |
 | \n | Salto de línea |
 | \t | Tabulación |
