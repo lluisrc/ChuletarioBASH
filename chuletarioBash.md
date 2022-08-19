@@ -75,7 +75,10 @@ esac
 | \%= | resto y asigna |
 
 ## Imprime por pantalla el id de usuario, si es root será 0
-id -u
+```
+[root@serverlinux ~]# id -u
+```
+
 ## Mantenimiento de usuarios
 ### Crear usuario
 ```
@@ -165,7 +168,7 @@ La salida la podemos imprimir con el comando echo
 | Argument | Description |
 |:--------:| ----------- |
 | -e | Interpreta el carácter \\ como acción |
-| -n | No hace un "intro" para imprimir |
+| -n | No hace un "intro" de después de imprimir |
 
 ### Formatos \¿?
 | Argument | Description |
@@ -184,8 +187,16 @@ La salida la podemos imprimir con el comando echo
 
 ## Trap
 Trap ejecuta una funcion dependiendo de la señal con la que ha finalizado el proceso, en este caso interrupción (ctrl+c)<br>
-(kill -l) --> INT, EXIT, TERM<br>
-trap control_c INT<br>
+Para ver el listado de señales con los que puede finalizar un proceso: INT, EXIT, TERM...
+```
+[root@serverlinux ~]# kill -l
+```
+INT es cuando se interrumpe un proceso (equivalente al típico ctrl+C)
+```
+trap control_c INT
+
+La función control_c se ejecuta cuando el script como proceso se detiene con señal INTerrumpida.
+```
 
 # Ojo al declare y al declare -i parameter_counter=0; while getops :x:y: arg; do
 while getopts "h:s:" arg; do
