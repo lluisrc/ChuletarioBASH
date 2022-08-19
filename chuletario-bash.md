@@ -203,20 +203,32 @@ control_c () {
 La función control_c se ejecuta cuando el script como proceso se detiene con señal INTerrumpida.
 ```
 
-# Ojo al declare y al declare -i parameter_counter=0; while getops :x:y: arg; do
-while getopts "h:s:" arg; do
-  case $arg in
-    h)
-      echo "usage" ;;
-    s)
-      strength=$OPTARG
-      echo $strength ;;
-  esac
+# getops
+```
+[user@serverlinux ~]$ ./script.sh -n lroca -c Mallorca
+I am lroca
+And I live in Mallorca
+```
+Code:
+```
+while getopts n:c: opt
+do
+    case "$opt" in
+          n) name=$OPTARG;;
+          c) country=$OPTARG
+     esac
 done
+
+echo "I am $name";
+echo  "And I live in $country";
+
+
+$OPTARG captura los argumentos pasados en los parámetros
+```
 
 ## find
 ```
-find <directory_path> <search_parameter>
+[user@serverlinux ~]$ find <directory_path> <search_parameter>
 ```
 | Argument | Description |
 |:--------:| ----------- |
@@ -234,25 +246,25 @@ find <directory_path> <search_parameter>
 | -exec | Ejecuta el -exec al resultado del find (como el xargs) |
 | -ok | Lo mismo que -exec pero con confirmaci |
 
-# xargs va acompañado al paid(tuberia), recoje la salida del comando anterior y lo pasa como argumentos al comando definido.
-find . -name archivo.txt | xargs cat
+## xargs
+La salida del comando anterior se utilizará como argumento en el parámetro de xargs
+[user@serverlinux ~]$ find . -name archivo.txt | xargs cat
+[user@serverlinux ~]$ ls kernel* | xargs rm -f
 
 
-# cut, recorta la salida con el formato deseado.
-cut <option> <file>
-options:
-    -f (fields)
-    -c (characters)
-    -d (delimiter)
-# Corta y muestra la salida de el segundo field delimintado por ' '
-cut -f2 -d ' ' <archivo>
-# Muestra los caracteres definidos
-cut -c 1-10 <archivo>
-# El cut se puede utilizar a continuación de un paid para tratar la salida del comando anterior
-echo "Hola mundo" | cut -c 1-3
+## cut
+Recorta la salida con el formato deseado.
+[user@serverlinux ~]$ echo "Hola-Mundo-Como-Estás" | cut -d "-" -f2
+Mundo
 
+| Argument | Description |
+|:--------:| ----------- |
+| -f | fields |
+| -c | characters |
+| -d | delimiter |
 
-# tr, remplazar los characters de la salida con el formato deseado. Se utiliza con paid para tratar la salida del comando anterior
+## tr
+remplazar los characters de la salida con el formato deseado. Se utiliza con paid para tratar la salida del comando anterior
 # Noramlmente en OPTION hay dos opciones, que quieres remplazar y a que quieres remplazar
 echo "Hola mundo!" | tr "[:lower:]" "[:upper:]"
 
