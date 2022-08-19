@@ -57,7 +57,7 @@ esac
 
 ## Operadores para los int
 ```
-[root@serverlinux ~]# echo "$((5 + 3))"
+[user@serverlinux ~]$ echo "$((5 + 3))"
 8
 ```
 | Elemento | Descripción |
@@ -123,40 +123,42 @@ Imprime las lineas que contenga el argumento
 | -B num | num lines to show Before grep line. |
 | -C num | num lines to show Context(after and before) grep line. |
 ```
-[root@serverlinux ~]# grep error /var/log/app.log
+[user@serverlinux ~]$ grep error /var/log/app.log
 ```
 Grep también puede ser complementado con la salida del comando anterior gracias al pipe "|"
 ```
-[root@serverlinux ~]# cat /var/log/app.log | grep error
+[user@serverlinux ~]$ cat /var/log/app.log | grep error
 ```
 
 ## $?
 Devuelve 0 si el comando anterior se ejecutó correctamente.
 ```
-[root@serverlinux ~]# mkdir test01
-[root@serverlinux ~]# echo "$?"
+[user@serverlinux ~]$ mkdir test01
+[user@serverlinux ~]$ echo "$?"
 0
 
-[root@serverlinux ~]# ls /path/do/not/exist
-[root@serverlinux ~]# echo "$?"
+[user@serverlinux ~]$ ls /path/do/not/exist
+[user@serverlinux ~]$ echo "$?"
 1
 
-[root@serverlinux ~]# dfajsdlf (comando no existe)
-[root@serverlinux ~]# echo "$?"
+[user@serverlinux ~]$ dfajsdlf (comando no existe)
+[user@serverlinux ~]$ echo "$?"
 127
 ```
 
 ## /dev/null
 Devuelve la salida a /dev/null (a nada) y la salida de errores la redirige a stdoutput
-echo "Hola" > /dev/null 2<&1
+```
+[user@serverlinux ~]$ echo "Hola" > /dev/null 2<&1
+```
 
-# Mostrar/Ocultar el cursor
+## Mostrar/Ocultar el cursor
 ```
 Muestra el cursor
-[root@serverlinux ~]# tput cnorm
+tput cnorm
 
 Ocultar el cursor
-[root@serverlinux ~]# tput civis
+tput civis
 ```
 
 ## Formatear salida con echo
@@ -177,19 +179,17 @@ La salida la podemos imprimir con el comando echo
 | \n | Salto de línea |
 | \t | Tabulación |
 | \v | Sangría a la derecha |
-| \r | Vuelve el curso al principio de la linea |
+| \r | Vuelve el cursor al principio de la linea |
 | \c | El prompt continúa |
 | \a | Alerta de sonido ¿? |
 | \e\[0;31m | Color Rojo |
-
-
 
 
 ## Trap
 Trap ejecuta una funcion dependiendo de la señal con la que ha finalizado el proceso, en este caso interrupción (ctrl+c)<br>
 Para ver el listado de señales con los que puede finalizar un proceso: INT, EXIT, TERM...
 ```
-[root@serverlinux ~]# kill -l
+[user@serverlinux ~]$ kill -l
 ```
 INT es cuando se interrumpe un proceso (equivalente al típico ctrl+C)
 ```
@@ -214,24 +214,26 @@ while getopts "h:s:" arg; do
   esac
 done
 
-# El comando find es muy potente, parámetros y todo lo que podemos hacer con find
+## find
+```
 find <directory_path> <search_parameter>
+```
+| Argument | Description |
+|:--------:| ----------- |
+| -name, -iname | Quita los espacios en blanco |
+| -type f/d/l | tipo de objeto file, dir, link |
+| -empty, -size b, k, M, G | Tamaño del archivo (+100G) |
+| -ctime, -mtime, -atime s,m,h,d,M | Tiempo de creación, modificación, acceso (+30d) |
+| -user, -group | Usuarios y grupos especificos |
+| -perm | Permisos especificos (775) |
+| -and | Y |
+| -or | O |
+| -not | Inversa |
+| -maxdepth | Máxima profundidad de recursión |
+| -mindepth | Mínima profundidad de recursión |
+| -exec | Ejecuta el -exec al resultado del find (como el xargs) |
+| -ok | Lo mismo que -exec pero con confirmaci |
 
-argumentos:
-    -name, -iname
-    -type --> f,d,l
-    -size, -empty --> c, k, M, G, b (+/-100G)
-    -ctime, -mtime, -atime (creación, modificación, acceso)
-    -user, -group
-    -perm --> 775
-    -and
-    -or
-    -not
-    -maxdepth (profundidad de recursión)
-    -mindepth
-    -exec (permite ejecutar comando al resultado del find)
-
-    -ok (como el exec pero fuerza la confirmación interactiva del usuario)
 # xargs va acompañado al paid(tuberia), recoje la salida del comando anterior y lo pasa como argumentos al comando definido.
 find . -name archivo.txt | xargs cat
 
