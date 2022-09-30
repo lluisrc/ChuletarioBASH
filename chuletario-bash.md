@@ -322,7 +322,7 @@ s sustitución<br>
 / delimitadores
 - primera posición del delimitador es el patrón de búsqueda
 - segunda posición del delimitador es la cadena de remplazo
-- tercera posición del delimitador es el numero de apariciones que actuará, en este caso 2. Utilizamos 'g' para todas las apariciones.
+- tercera posición del delimitador es el numero de apariciones por línea en la que ará la sustitución, en este caso 2. Utilizamos 'g' para todas las apariciones.
 
 
 Podemos indicar que línea especifica debe acutar
