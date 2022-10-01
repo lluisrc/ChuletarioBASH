@@ -487,7 +487,7 @@ Para eliminar una conexión
 ## Uniq
 El binario uniq sirve para obtener los elementos únicos de una lista
 ```
-[user@linuxserver ~]# cat dias-semana.txt
+[user@linuxserver ~]$ cat dias-semana.txt
 Lunes
 Martes
 Martes
@@ -504,7 +504,7 @@ Domingo
 ```
 
 ```
-[user@linuxserver ~]# cat dias-semana.txt | uniq
+[user@linuxserver ~]$ cat dias-semana.txt | uniq
 Lunes
 Martes
 Miercoles
@@ -518,3 +518,11 @@ Domingo
 Con el parámetro `-i` lo hace sin key sensitive
 
 
+## Ejecutar un comando al arranque del sistema
+Editamos el archivo de crontab `crontab -e` y escribimosla siguinte instrucción
+```
+@reboot <instrucción>
+
+Ejemplo:
+@reboot /usr/bin/docker-compose -f /opt/docker/registros-canpedro/main/docker-compose.yml up -d
+```
