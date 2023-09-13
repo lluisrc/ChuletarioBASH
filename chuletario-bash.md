@@ -80,6 +80,41 @@ esac
 | \/= | divide y asigna |
 | \%= | resto y asigna |
 
+## Tar
+Comprimir archivos
+c – crear un nuevo archivo .tar
+v – muestra una descripción detallada del progreso de la compresión
+f – nombre del archivo
+z - compresión .gzip
+j - compresión .bz2
+r - agregar archivo a .tar
+```
+[root@serverlinux ~]# tar -cvf sampleArchive.tar /home/sampleArchive
+```
+
+Descomprimir archivo
+x - descomprime el archivo
+C - extraer a un directorio diferente
+```
+[root@serverlinux ~]# tar -xvf sampleArchive.tar
+```
+
+Descomprimir archivo único
+```
+[root@serverlinux ~]# tar -xvf sampleArchive.tar example.sh
+```
+
+Con wildcard
+```
+[root@serverlinux ~]# tar -xvf sampleArchive.tar --wildcards '*.jpg'
+```
+
+Verificar tar
+t - verificar el archivo
+```
+[root@serverlinux ~]# tar -tvf sampleArchive.tar
+```
+
 ## Imprime por pantalla el id de usuario, si es root será 0
 ```
 [root@serverlinux ~]# id -u
