@@ -82,19 +82,23 @@ esac
 
 ## Tar
 Comprimir archivos
-c – crear un nuevo archivo .tar
-v – muestra una descripción detallada del progreso de la compresión
-f – nombre del archivo
-z - compresión .gzip
-j - compresión .bz2
-r - agregar archivo a .tar
+| Parámetro | Descripción |
+|:--------:|-------------|
+| c | crear un nuevo archivo .tar |
+| v | muestra una descripción detallada del progreso de la compresión |
+| f | nombre del archivo |
+| z | compresión .gzip |
+| j | compresión .bz2 |
+| r | agregar archivo a .tar |
 ```
 [root@serverlinux ~]# tar -cvf sampleArchive.tar /home/sampleArchive
 ```
 
 Descomprimir archivo
-x - descomprime el archivo
-C - extraer a un directorio diferente
+| Parámetro | Descripción |
+|:--------:|-------------|
+| x | descomprime el archivo |
+| C | extraer a un directorio diferente |
 ```
 [root@serverlinux ~]# tar -xvf sampleArchive.tar
 ```
@@ -110,7 +114,9 @@ Con wildcard
 ```
 
 Verificar tar
-t - verificar el archivo
+| Parámetro | Descripción |
+|:--------:|-------------|
+| t | verificar el archivo |
 ```
 [root@serverlinux ~]# tar -tvf sampleArchive.tar
 ```
