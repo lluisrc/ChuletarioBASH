@@ -42,7 +42,7 @@ esac
 ```
 
 ## Operadores para las comparaciones
-| Elemento | Descripción |
+| Signo | Descripción |
 |:--------:|-------------|
 | == | Igual (str) |
 | -eq | Igual (int) |
@@ -620,4 +620,19 @@ options:
 ```
 Antes de eliminar un volúmen montado debemos desmontarlo
 [user@linuxserver ~]$ vremove /dev/mapper/<VolGroup>/<VolName>
+```
+
+## Ver puertos abiertos
+
+| Parámetro | Descripción |
+|:--------:|-------------|
+| -t | Show only TCP sockets on Linux |
+| -u | Display only UDP sockets on Linux |
+| -l | Show listening sockets. For example, TCP port 22 is opened by SSHD server. |
+| -p | List process name that opened sockets |
+| -n | Don’t resolve service names i.e. don’t use DNS |
+| -w | Display RAW sockets |
+
+```
+[user@linuxserver ~]$ ss -tulwn | grep LISTEN
 ```
