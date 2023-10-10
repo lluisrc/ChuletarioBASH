@@ -140,7 +140,7 @@ Verificar tar
 
 ### Añadir usuario a grupo
 ```
-[root@serverlinux ~]# usermod -aG docker lroca
+[root@serverlinux ~]# usermod lroca -aG docker
 ```
 | Argument | Description |
 |:--------:| ----------- |
@@ -148,6 +148,14 @@ Verificar tar
 | -G | define el grupo como secundario |
 | -g | define el grupo como primario |
 
+### Quitar usuario a grupo
+```
+[root@serverlinux ~]# gpasswd nginx -d lroca
+Removing user lroca from group nginx
+```
+| Argument | Description |
+|:--------:| ----------- |
+| -d | --delete |
 
 ## Grep
 Imprime las lineas que contenga el argumento
