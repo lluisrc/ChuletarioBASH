@@ -186,7 +186,9 @@ Imprime las lineas que contenga el argumento
 Grep también puede ser complementado con la salida del comando anterior gracias al pipe "|"
 ```
 [user@serverlinux ~]$ cat /var/log/app.log | grep error
+
 [user@serverlinux ~]$ grep "word1\|word2\|word3" /path/to/file
+[user@serverlinux ~]$ grep [\<\>] /path/to/file
 ```
 
 ## $?
