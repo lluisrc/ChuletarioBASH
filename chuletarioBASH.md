@@ -187,8 +187,9 @@ Grep también puede ser complementado con la salida del comando anterior gracias
 ```
 [user@serverlinux ~]$ cat /var/log/app.log | grep error
 
-[user@serverlinux ~]$ grep "word1\|word2\|word3" /path/to/file
-[user@serverlinux ~]$ grep "[\<\>]" /path/to/file
+[user@serverlinux ~]$ grep -E "word1|word2|word3" /path/to/file
+[user@serverlinux ~]$ grep -vE "word4|word5|word6" /path/to/file
+
 ```
 
 ## $?
